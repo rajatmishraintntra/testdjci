@@ -1,7 +1,10 @@
 name: Django application
 
-on: [push]
-
+on:
+  push:
+  pull_request_review:
+    types:
+      - submitted
 jobs:
   build:
 
@@ -34,3 +37,4 @@ jobs:
       run: python manage.py makemigrations && python manage.py migrate
     - name: Run tests
       run: python manage.py test
+    
